@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man</title>
+    <style>
+        @keyframes backgroundAnimation {
+            0% {
+                background: linear-gradient(0deg, rgb(17, 51, 161), rgb(136, 34, 195));
+            }
+            25% {
+                background: linear-gradient(0deg, rgb(255, 94, 0), rgb(255, 195, 0));
+            }
+            50% {
+                background: linear-gradient(0deg, rgb(0, 128, 255), rgb(0, 255, 255));
+            }
+            75% {
+                background: linear-gradient(0deg, rgb(255, 0, 128), rgb(128, 0, 255));
+            }
+            100% {
+                background: linear-gradient(0deg, rgb(17, 51, 161), rgb(136, 34, 195));
+            }
+        }
+
+        #gameCanvas {
+            box-shadow: 10px 10px 20px black;
+        }
+        h1 {
+            text-align: center;
+            font-family: comic sans MS;
+            color: lightgray;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+        #gameContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .footer-text-container {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: right;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            background: linear-gradient(90deg, rgba(255, 0, 128, 1), rgba(0, 204, 255, 1));
+            color: white;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        button {
+            background-color: green;
+            position: absolute;
+            top: 490px;          
+            right: 730px;        
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;    
+          }
+    </style>
+</head>
+<body>
+    <!-- The name of the user will be displayed here -->
+    <span id="userName">Guest</span>
+    <span id="age">Guest</span>
+    <div>
+        <h1>Pac-Man</h1>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <div id="gameContainer">
+        <br><br>
+        <h1>Enjoy Game</h1>
+        <div class="footer-text-container">
+            This game was developed by group 21 <br>
+            1. Ansuman Mahapatra <br>
+            2. Biswajeet Patra <br>
+            3. Tapan Kumar Sahoo
+        </div>
+    </div>
+    <button onclick="restartPage()">Restart</button>
+
+    <!-- The overlay div that will cover the entire page until the user inputs their name -->
+    <div id="overlay" style="position: fixed; width: 100%; height: 100%; background: rgba(0,0,0,0.7); top: 0; left: 0; display: flex; justify-content: center; align-items: center; color: white; font-size: 24px;">
+        <span>Loading... Please enter your name to continue.</span>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Display the overlay while the user is prompted
+            document.getElementById("overlay").style.display = "flex";
+
+            // Prompt for the user's name
+            var userName = prompt("Please enter your name:");
+
+            // If the user entered a name
+            if (userName != null && userName != "") {
+                alert("Hello, " + userName + " ! Welcome to our Game.");
+                // Display the user's name on the page
+                document.getElementById('userName').textContent = userName;
+            } else {
+                alert("Hello, Guest! Welcome to our Game.");
+            }
+
+            // Remove the overlay and show the page content
+            document.getElementById("overlay").style.display = "none";
+        };
+
+        // Function to restart the page
+        function restartPage() {
+            location.reload(); // This will reload the current page
+        }
+    </script>
+
+    <script src="src holder/Game.js" type="module"></script>
+</body>
+
+
+</html>

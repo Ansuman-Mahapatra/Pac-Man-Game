@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man</title>
+    <style>
+
+        #gameCanvas {
+            box-shadow: 10px 10px 20px black;
+        }
+        h1 {
+            text-align: center;
+            font-family: comic sans MS;
+            color: lightgray;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+        footer {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            text-align: right;
+            color: lightgray;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Pac-Man</h1>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    
+    <footer>
+        This code was developed by group 21 <br>
+        1. Ansuman Mahapatra <br>
+        2. Biswajeet Patra <br>
+        3. Tapan Kumar Sahoo
+    </footer>
+    <script src="src holder/Game.js" type="module"></script>
+</body>
+</html>
